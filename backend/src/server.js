@@ -14,11 +14,15 @@ const app = express();
 const PORT = process.env.PORT;
 
 const __dirname = path.resolve();
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://pingme-1-99e4.onrender.com", // <-- your actual frontend URL
+];
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    credentials: true, // allow frontend to send cookies
+    origin: allowedOrigins,
+    credentials: true,
   })
 );
 
